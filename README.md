@@ -6,7 +6,7 @@ For full results and discussion, see our final report that we submitted for ROB 
 ## Localization
 
 ### Particle Filter
-The particle filter can be found in the `particle_filter` folder. Simply run run.py to see the filtered poses and raw poses get written out to text files.
+The particle filter can be found in the `particle_filter` folder. Simply run `run.py` to see the filtered poses and raw poses get written out to text files.
 
 ### Extended Kalman Filter
 Our particle filter results did not yield results with the expected improvement due to the algorithm's time complexity and particle degeneracy with a higher number of particles. We applied the extended kalman filter from the `robot_localization` node and compared the translational and orientation errors with our particle filter. With the EKF, we achieved better results. The EKF with its results can be found in the `ekf` folder.
