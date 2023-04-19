@@ -1,0 +1,6 @@
+align_type: posyaw #sim3, se3, none, posyaw
+#align_type: sim3 #sim3, se3, none, posyaw
+align_num_frames: -1
+#start_time_sec: 1501822123031317949
+#end_time_Sec: 1501822150287960052
+

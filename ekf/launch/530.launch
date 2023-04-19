@@ -1,0 +1,28 @@
+<launch>
+  <param name ="/use_sim_time" value="true"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="bl_imu" args="-0.0998 0.0178 -0.4023 0 0.000118 -0.000101 0.999999 body imu"/>     
+ <param name ="/use_sim_time" value="true"/>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="bl_gps" args="-0.0998 0.0178 -0.4023 0 0.000118 -0.000101 0.999999 body gps"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="bl_pose" args="-0.0998 0.0178 -0.4023 0 0.000118 -0.000101 0.999999 body pose_raw"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="bl_1pose" args="0 0 0 0 0 0 1 odom pose_raw"/>
+   <param name ="/use_sim_time" value="true"/>
+  <node pkg="robot_localization" name="talker" type="530_talker.py"/>
+  
+   <!-- <param name ="/use_sim_time" value="true"/>
+   <node pkg="robot_localization" name="NEDtoENU" type="NEDtoENU.py"/> 
+   <param name ="/use_sim_time" value="true"/>
+  <node pkg="robot_localization" name="gpsmapp" type="talker2.py"/>
+   -->
+   <param name ="/use_sim_time" value="true"/>
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_imu" clear_params="true">
+  <rosparam command="load" file="$(find robot_localization)/params/530.yaml" />
+
+    <!--  Placeholder for output topic remapping
+    <remap from="odometry/filtered" to=""/>
+    <remap from="accel/filtered" to=""/>lauhow to publish a static transform between a child and another frame
+    -->
+
+  </node>
+  
+
+</launch>

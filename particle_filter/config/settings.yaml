@@ -1,0 +1,41 @@
+
+### World ###
+world_dimension: 3  # dimension of the world. 2 for 2D world, 3 for 3D world.
+
+
+### Data Handler ###
+data_path: "./data/Sample-Data.bag"
+
+### Robot System ###
+filter_name: "PF"      # name of the filter # EKF # UKF # PF # InEKF # test
+Lie2Cart: False            # Lie to Cartesian for 2.E extra points
+
+# motion noise (in odometry space, see Table 5.5, p.134 in book).
+alphas_sqrt: [0.00025, 0.00005, 0.0025, 0.0005, 0.0025, 0.0005]
+# sensor noise
+beta: 5 # approx 5 deg.
+
+# init state
+#deltaT: 0.1
+
+# initial_state_mean: [1294, -1777, 1] 
+initial_state_mean: [1294, -1777, -5, 0.02553272, 0.01807015, 1.25587186, -0.021107487, 0.0507603, 0.00099315, 0.002430921, 0.001476777, 0.00069698, 0.16524122, -0.0263445768, 0.0761191099] 
+# initial_state_mean: [-1777, 1294, 5, 0.01807015, 0.02553272, -1.25587186, 0.0507603, -0.021107487, -0.00099315, 0.001476777, 0.002430921, -0.00069698, -0.0263445768, 0.16524122, -0.0761191099] 
+initial_state_variance: [1, 1, 1] 
+# initial_state_variance: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] 
+
+
+
+### path publisher ###
+pose_topic: "robot_state/pose"
+path_topic: "robot_state/path"
+path_frame_id: "map"
+gt_path_topic: "groundtruth/path"
+command_path_topic: "command/path"
+ellipse_topic: "robot_state/nonlinear_cov"
+
+
+### marker publisher ###
+landmark_topic: "landmarks"
+marker_frame_id: "map"
+loop_sleep_time: 0.1
